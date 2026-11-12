@@ -1,0 +1,42 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Prianshu Mitra | Engineer · Founder · Builder · Musician</title>
+    <meta name="description" content="Personal portfolio and creative workspace of Prianshu Mitra — Software Engineer, Founder of Debi-Dorshon, Builder, and Musician." />
+    <!-- Google Fonts: Syne (Modern Architectural Display), Plus Jakarta Sans (Clean Modern Body), JetBrains Mono (Technical) -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;500;600&family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&family=Syne:wght@600;700;800&display=swap" rel="stylesheet">
+    <!-- Tailwind CSS Script & Theme Configuration -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+      tailwind.config = {
+        theme: {
+          extend: {
+            colors: {
+              charcoal: '#11120F',
+              nearblack: '#090A08',
+              ochre: '#D99A35',
+              amber: '#F5B94F',
+              sapgreen: '#526B39',
+              mutedolive: '#303B24',
+              ivory: '#F0E8D8'
+            },
+            fontFamily: {
+              display: ['Syne', 'sans-serif'],
+              sans: ['Plus Jakarta Sans', 'sans-serif'],
+              mono: ['JetBrains Mono', 'monospace']
+            }
+          }
+        }
+      }
+    </script>
+  </head>
+  <body>
+    <div id="root"></div>
+    <script type="module" src="/src/main.tsx"></script>
+  </body>
+</html>
