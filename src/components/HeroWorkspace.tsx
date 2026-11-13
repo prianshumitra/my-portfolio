@@ -45,24 +45,24 @@ export const HeroWorkspace: React.FC = () => {
         {/* Dark moss-green quarter-circle anchored at bottom-left corner behind skyline */}
         <svg
           viewBox="0 0 100 100"
-          className="absolute left-0 bottom-0 w-[130px] sm:w-[155px] lg:w-[180px] xl:w-[200px] h-[130px] sm:h-[155px] lg:h-[180px] xl:h-[200px] pointer-events-none z-0"
+          className="absolute left-0 bottom-0 w-[160px] sm:w-[195px] lg:w-[230px] xl:w-[260px] h-[160px] sm:h-[195px] lg:h-[230px] xl:h-[260px] pointer-events-none z-0"
         >
-          <path d="M 0 0 A 100 100 0 0 1 100 100 L 0 100 Z" fill="#242B1E" opacity="0.15" />
+          <path d="M 0 0 A 100 100 0 0 1 100 100 L 0 100 Z" fill="#242B1E" opacity="0.18" />
         </svg>
 
         {/* Delicate architectural vertical guide line with crosshair */}
-        <div className="hidden sm:block absolute left-8 lg:left-12 bottom-0 h-[460px] w-px bg-[#39382F]/20 pointer-events-none z-0">
-          <div className="absolute top-20 left-1/2 -translate-x-1/2 -translate-y-1/2 w-3.5 h-3.5 flex items-center justify-center">
+        <div className="hidden sm:block absolute left-8 lg:left-12 bottom-0 h-[520px] w-px bg-[#39382F]/20 pointer-events-none z-0">
+          <div className="absolute top-24 left-1/2 -translate-x-1/2 -translate-y-1/2 w-3.5 h-3.5 flex items-center justify-center">
             <div className="w-3.5 h-px bg-[#39382F]/40" />
             <div className="h-3.5 w-px bg-[#39382F]/40 absolute" />
           </div>
         </div>
 
-        {/* Kolkata skyline illustration – scaled down slightly for better balance */}
+        {/* Kolkata skyline illustration – enlarged */}
         <img
           src="/assets/kolkata_skyline_sun.png"
           alt="Kolkata skyline"
-          className="relative z-10 w-[420px] sm:w-[500px] lg:w-[580px] xl:w-[660px] max-w-[70vw] max-h-[170px] sm:max-h-[200px] lg:max-h-[230px] h-auto object-contain object-left-bottom opacity-100"
+          className="relative z-10 w-[540px] sm:w-[640px] lg:w-[740px] xl:w-[820px] max-w-[80vw] max-h-[210px] sm:max-h-[250px] lg:max-h-[285px] h-auto object-contain object-left-bottom opacity-100"
           style={{ filter: 'drop-shadow(0 12px 20px rgba(23, 23, 16, 0.22))' }}
         />
       </div>
@@ -70,30 +70,28 @@ export const HeroWorkspace: React.FC = () => {
       {/* Main flex container */}
       <div className="relative z-10 flex h-full flex-col lg:flex-row">
         {/* LEFT HERO CONTENT */}
-        <div className="flex w-full lg:w-[48%] flex-col justify-start pl-10 sm:pl-16 lg:pl-28 xl:pl-36 pr-6 lg:pr-8 pt-24 sm:pt-28 lg:pt-32 z-20">
-          <div className="max-w-[520px] text-left space-y-6 sm:space-y-7">
+        <div className="flex w-full lg:w-[44%] flex-col justify-start pl-6 sm:pl-12 lg:pl-20 xl:pl-28 pr-6 lg:pr-8 pt-24 sm:pt-28 lg:pt-32 z-20">
+          <div className="max-w-[460px] text-left space-y-6">
             {/* Eyebrow */}
-            <div className="font-mono text-xs sm:text-[13px] tracking-[0.24em] uppercase text-[#5F5B50]">
-              ENGINEER&nbsp;&nbsp;|&nbsp;&nbsp;FOUNDER&nbsp;&nbsp;|&nbsp;&nbsp;MUSICIAN
+            <div className="font-mono text-xs tracking-[0.22em] uppercase text-[#5F5B50]">
+              ENGINEER&nbsp;|&nbsp;FOUNDER&nbsp;|&nbsp;MUSICIAN
             </div>
-            {/* Heading – slightly enlarged */}
-            <h1 className="font-serif text-[5.2rem] sm:text-[6.2rem] lg:text-[6.8rem] xl:text-[7.4rem] leading-[0.88] tracking-[-0.03em] text-[#171710]">
+            {/* Heading */}
+            <h1 className="font-serif text-[5.8rem] leading-[0.88] tracking-[-0.03em] text-[#171710]">
               Prianshu<br />Mitra
             </h1>
             {/* Ochre underline */}
-            <div className="w-28 h-[5.5px] bg-[#D99A19] rounded" />
-            {/* Description – slightly enlarged */}
-            <p className="font-mono text-[1.05rem] sm:text-[1.12rem] italic text-[#39382F] leading-[1.72] max-w-[420px]">
+            <div className="w-24 h-[5px] bg-[#D99A19] rounded" />
+            {/* Description */}
+            <p className="font-mono text-base italic text-[#39382F] leading-[1.7] max-w-[380px]">
               I build digital products at the intersection
               <br className="hidden sm:inline" /> of technology and creativity.
             </p>
-            {/* CTA – slightly enlarged */}
-            <div className="pt-1">
-              <a href="#creations" className="inline-flex items-center gap-2.5 bg-[#15180F] text-[#EEE8D9] px-7 py-3.5 rounded-[4px] hover:bg-[#22251A] transition-all text-[15px] font-sans font-bold shadow-md hover:shadow-lg">
-                <span>Explore Work</span>
-                <ArrowUpRight size={17} className="text-[#D99A19]" />
-              </a>
-            </div>
+            {/* CTA */}
+            <a href="#creations" className="inline-flex items-center bg-[#15180F] text-[#EEE8D9] px-6 py-3 rounded-[3px] hover:bg-[#22251A] transition-colors">
+              <span className="mr-2">Explore Work</span>
+              <ArrowUpRight size={16} />
+            </a>
           </div>
         </div>
 
