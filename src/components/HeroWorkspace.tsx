@@ -71,27 +71,29 @@ export const HeroWorkspace: React.FC = () => {
       <div className="relative z-10 flex h-full flex-col lg:flex-row">
         {/* LEFT HERO CONTENT */}
         <div className="flex w-full lg:w-[44%] flex-col justify-start pl-6 sm:pl-12 lg:pl-20 xl:pl-28 pr-6 lg:pr-8 pt-24 sm:pt-28 lg:pt-32 z-20">
-          <div className="max-w-[460px] text-left space-y-6">
+          <div className="max-w-[420px] text-left space-y-4 sm:space-y-5">
             {/* Eyebrow */}
-            <div className="font-mono text-xs tracking-[0.22em] uppercase text-[#5F5B50]">
+            <div className="font-mono text-[11px] sm:text-xs tracking-[0.22em] uppercase text-[#5F5B50] font-semibold">
               ENGINEER&nbsp;|&nbsp;FOUNDER&nbsp;|&nbsp;MUSICIAN
             </div>
-            {/* Heading */}
-            <h1 className="font-serif text-[5.8rem] leading-[0.88] tracking-[-0.03em] text-[#171710]">
+            {/* Heading – reduced to refined editorial scale */}
+            <h1 className="font-serif text-[3.8rem] sm:text-[4.4rem] lg:text-[4.8rem] xl:text-[5.2rem] leading-[0.90] tracking-[-0.03em] text-[#171710] font-bold">
               Prianshu<br />Mitra
             </h1>
             {/* Ochre underline */}
-            <div className="w-24 h-[5px] bg-[#D99A19] rounded" />
-            {/* Description */}
-            <p className="font-mono text-base italic text-[#39382F] leading-[1.7] max-w-[380px]">
+            <div className="w-20 h-[4px] bg-[#D99A19] rounded-sm" />
+            {/* Description – reduced size */}
+            <p className="font-mono text-[13.5px] sm:text-[14.5px] italic text-[#39382F] leading-[1.65] max-w-[360px]">
               I build digital products at the intersection
               <br className="hidden sm:inline" /> of technology and creativity.
             </p>
-            {/* CTA */}
-            <a href="#creations" className="inline-flex items-center bg-[#15180F] text-[#EEE8D9] px-6 py-3 rounded-[3px] hover:bg-[#22251A] transition-colors">
-              <span className="mr-2">Explore Work</span>
-              <ArrowUpRight size={16} />
-            </a>
+            {/* CTA – reduced size */}
+            <div className="pt-1">
+              <a href="#creations" className="inline-flex items-center gap-2 bg-[#15180F] text-[#EEE8D9] px-5 py-2.5 rounded-[3px] hover:bg-[#22251A] transition-colors text-xs sm:text-sm font-sans font-semibold">
+                <span>Explore Work</span>
+                <ArrowUpRight size={14} className="text-[#D99A19]" />
+              </a>
+            </div>
           </div>
         </div>
 

@@ -18,7 +18,8 @@
   /* Typography Roles */
   --font-sans: 'Plus Jakarta Sans', system-ui, -apple-system, BlinkMacSystemFont, sans-serif;
   --font-serif: 'Cormorant Garamond', 'Playfair Display', 'Newsreader', Georgia, serif;
-  --font-mono: 'Cormorant Garamond', 'Playfair Display', 'Newsreader', Georgia, serif;
+  --font-mono: 'JetBrains Mono', 'SF Mono', Consolas, monospace;
+  --font-bengali: 'Noto Serif Bengali', 'Anek Bangla', 'Tiro Bangla', serif;
 }
 
 * {
@@ -62,7 +63,14 @@ body {
   font-weight: 700 !important;
 }
 
-h1, h2, h3, h4, h5, h6, b, strong {
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+b,
+strong {
   font-weight: 700 !important;
 }
 
@@ -70,13 +78,16 @@ h1, h2, h3, h4, h5, h6, b, strong {
 ::-webkit-scrollbar {
   width: 5px;
 }
+
 ::-webkit-scrollbar-track {
   background: var(--workspace-bg);
 }
+
 ::-webkit-scrollbar-thumb {
   background: #282c1f;
   border-radius: 2px;
 }
+
 ::-webkit-scrollbar-thumb:hover {
   background: var(--ochre-accent);
 }
@@ -91,11 +102,17 @@ h1, h2, h3, h4, h5, h6, b, strong {
   font-family: var(--font-sans);
   font-weight: 700 !important;
 }
+
 .font-serif {
   font-family: var(--font-serif);
 }
+
 .font-mono {
-  font-family: var(--font-serif);
+  font-family: var(--font-mono);
+}
+
+.font-bengali {
+  font-family: var(--font-bengali);
 }
 
 /* Natural Subtle Paper Grain (No harsh lines or grid) */
@@ -120,6 +137,7 @@ h1, h2, h3, h4, h5, h6, b, strong {
   padding-left: 1.5rem;
   padding-right: 1.5rem;
 }
+
 @media (min-width: 1024px) {
   .editorial-container {
     padding-left: 3rem;
@@ -148,14 +166,17 @@ h1, h2, h3, h4, h5, h6, b, strong {
   box-shadow: 0 4px 14px rgba(0, 0, 0, 0.25);
   cursor: pointer;
 }
+
 .btn-hero-primary:hover {
   background-color: var(--secondary-dark-green);
   border-color: rgba(217, 154, 25, 0.4);
   transform: translateY(-1px);
 }
+
 .btn-hero-primary svg {
   transition: transform 0.25s ease;
 }
+
 .btn-hero-primary:hover svg {
   transform: translate(2px, -2px);
 }
@@ -179,6 +200,7 @@ h1, h2, h3, h4, h5, h6, b, strong {
   cursor: pointer;
   text-decoration: none;
 }
+
 .btn-resume-nav:hover {
   background-color: var(--secondary-dark-green);
   border-color: #fff;

@@ -31,37 +31,42 @@ export const Navigation: React.FC<NavigationProps> = ({
 
   return (
     <header
-      className={`fixed top-0 left-0 w-full z-50 transition-all duration-300 ${
-        scrolled
-          ? 'py-3.5 bg-[#15180F]/95 backdrop-blur-md border-b border-[rgba(238,232,217,0.08)] shadow-lg'
-          : 'pt-6 pb-4 bg-transparent'
-      }`}
+      className={`fixed top-0 left-0 w-full z-50 transition-all duration-300 ${scrolled
+        ? 'py-3.5 bg-[#15180F]/95 backdrop-blur-md border-b border-[rgba(238,232,217,0.08)] shadow-lg'
+        : 'pt-6 pb-4 bg-transparent'
+        }`}
     >
       <div className="w-full px-5 sm:px-8 lg:px-12 xl:px-16 flex items-center justify-between">
-        
-        {/* Left: PM logo & architectural line */}
-        <div className="flex items-center gap-6">
+
+        {/* Left: Kolkata Bengali style "আমার পোর্টফোলিও" (My Portfolio) brand mark */}
+        <div className="flex items-center gap-5 sm:gap-6 pl-2 sm:pl-4">
           <a
             href="#home"
-            className="flex items-center gap-1.5 text-decoration-none group select-none"
-            title="Prianshu Mitra"
+            className="flex flex-col items-start text-decoration-none group select-none relative"
+            title="আমার পোর্টফোলিও — Prianshu Mitra"
           >
-            <span className={`font-serif text-3xl font-bold tracking-tight transition-colors ${
-              scrolled ? 'text-[#EEE8D9]' : 'text-[#171710]'
-            }`}>
-              PM.
+            {/* Authentic Bengali Script Typography with Continuous Shirorekha */}
+            <div className="flex items-center gap-1.5">
+              <span className={`font-bengali text-2xl sm:text-[1.8rem] font-bold tracking-tight leading-none transition-colors ${scrolled ? 'text-[#EEE8D9]' : 'text-[#171710]'
+                }`}>
+                আমার পোর্টফোলিও
+              </span>
+              <span className="w-2 h-2 bg-[#D99A19] inline-block transition-transform group-hover:scale-125 rounded-full ml-0.5" />
+            </div>
+
+            {/* Subtitle in sleek gold monospace for clarity */}
+            <span className="font-mono text-[15px] tracking-[0.24em] uppercase text-[#171710] font-bold pl-0.5 mt-1">
+              MY PORTFOLIO
             </span>
-            <span className="w-2.5 h-2.5 bg-[#D99A19] inline-block transition-transform group-hover:scale-110 ml-0.5" />
           </a>
 
           {/* Thin horizontal architectural line */}
-          <div className={`hidden md:block w-28 lg:w-36 h-[1px] transition-colors ${
-            scrolled ? 'bg-[#EEE8D9]/20' : 'bg-[#39382F]/30'
-          }`} />
+          <div className={`hidden md:block w-16 lg:w-24 h-[1px] transition-colors ${scrolled ? 'bg-[#EEE8D9]/20' : 'bg-[#39382F]/25'
+            }`} />
         </div>
 
-        {/* Center-Left: Navigation Links – shifted slightly to the left */}
-        <nav className="hidden lg:flex items-center gap-8 xl:gap-9 -translate-x-6 lg:-translate-x-10 xl:-translate-x-14">
+        {/* Center-Left: Navigation Links – shifted towards left */}
+        <nav className="hidden lg:flex items-center gap-6 xl:gap-7 -translate-x-16 lg:-translate-x-28 xl:-translate-x-36">
           {navLinks.map((link) => {
             const isActive = activeSection === link.id;
             return (
@@ -105,9 +110,8 @@ export const Navigation: React.FC<NavigationProps> = ({
         <div className="lg:hidden flex items-center">
           <button
             onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
-            className={`p-2 rounded transition-colors bg-transparent border-0 cursor-pointer ${
-              scrolled ? 'text-[#EEE8D9]' : 'text-[#171710]'
-            }`}
+            className={`p-2 rounded transition-colors bg-transparent border-0 cursor-pointer ${scrolled ? 'text-[#EEE8D9]' : 'text-[#171710]'
+              }`}
             aria-label="Toggle navigation"
           >
             {mobileMenuOpen ? <X size={24} /> : <Menu size={24} />}
@@ -125,9 +129,8 @@ export const Navigation: React.FC<NavigationProps> = ({
                 key={link.id}
                 href={link.href}
                 onClick={() => setMobileMenuOpen(false)}
-                className={`py-2 text-sm font-sans font-bold tracking-wide transition-colors ${
-                  isActive ? 'text-[#D99A19]' : 'text-[#AAA595]'
-                }`}
+                className={`py-2 text-sm font-sans font-bold tracking-wide transition-colors ${isActive ? 'text-[#D99A19]' : 'text-[#AAA595]'
+                  }`}
               >
                 {link.label}
               </a>
