@@ -34,3 +34,36 @@ export const LinkedinIcon: React.FC<{ size?: number; className?: string }> = ({ 
     <circle cx="4" cy="4" r="2" />
   </svg>
 );
+
+export const DurgaEyeIcon: React.FC<{ className?: string }> = ({ className = "w-6 h-6 text-white" }) => (
+  <svg viewBox="0 0 44 26" fill="none" xmlns="http://www.w3.org/2000/svg" className={className}>
+    {/* Left Eye */}
+    <path
+      d="M3 13C8 6 16 6 21 13C16 20 8 20 3 13Z"
+      stroke="currentColor"
+      strokeWidth="2"
+      strokeLinecap="round"
+      strokeLinejoin="round"
+    />
+    <circle cx="12" cy="13" r="3.2" fill="currentColor" />
+    <path d="M5 8C9 4 15 4 19 6" stroke="currentColor" strokeWidth="1.6" strokeLinecap="round" />
+
+    {/* Right Eye */}
+    <path
+      d="M23 13C28 6 36 6 41 13C36 20 28 20 23 13Z"
+      stroke="currentColor"
+      strokeWidth="2"
+      strokeLinecap="round"
+      strokeLinejoin="round"
+    />
+    <circle cx="32" cy="13" r="3.2" fill="currentColor" />
+    <path d="M25 6C29 4 35 4 39 8" stroke="currentColor" strokeWidth="1.6" strokeLinecap="round" />
+
+    {/* Sacred Third Eye (Trinayan) Center Tilak */}
+    <path
+      d="M22 3.5C20.5 7.5 20.5 10 22 13C23.5 10 23.5 7.5 22 3.5Z"
+      fill="currentColor"
+    />
+    <circle cx="22" cy="2" r="1.2" fill="currentColor" />
+  </svg>
+);

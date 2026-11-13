@@ -1,19 +1,14 @@
 import { useState, useEffect } from 'react';
-import { Menu, X, FileText, Sparkles, Sun, Moon } from 'lucide-react';
-import { SoundAmbiance } from './SoundAmbiance';
+import { Menu, X, ArrowUpRight } from 'lucide-react';
 
 interface NavigationProps {
   onOpenResume: () => void;
   activeSection: string;
-  lightMode: 'warm' | 'dim' | 'bright';
-  setLightMode: (mode: 'warm' | 'dim' | 'bright') => void;
 }
 
 export const Navigation: React.FC<NavigationProps> = ({
   onOpenResume,
-  activeSection,
-  lightMode,
-  setLightMode
+  activeSection
 }) => {
   const [scrolled, setScrolled] = useState(false);
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
@@ -22,157 +17,134 @@ export const Navigation: React.FC<NavigationProps> = ({
     const handleScroll = () => {
       setScrolled(window.scrollY > 40);
     };
-    window.addEventListener('scroll', handleScroll);
+    window.addEventListener('scroll', handleScroll, { passive: true });
     return () => window.removeEventListener('scroll', handleScroll);
   }, []);
 
   const navLinks = [
-    { label: 'Home', href: '#home' },
-    { label: 'Creations', href: '#creations' },
-    { label: 'Technologies', href: '#technologies' },
-    { label: 'Beyond Code', href: '#beyond-code' },
-    { label: 'Achievements', href: '#achievements' },
-    { label: 'Journey', href: '#journey' },
-    { label: 'Contact', href: '#contact' }
+    { id: 'home', label: 'Home', href: '#home' },
+    { id: 'creations', label: 'Creations', href: '#creations' },
+    { id: 'beyond-code', label: 'Beyond Code', href: '#beyond-code' },
+    { id: 'journey', label: 'Journey', href: '#journey' },
+    { id: 'contact', label: 'Contact', href: '#contact' }
   ];
-
-  const cycleLighting = () => {
-    if (lightMode === 'warm') setLightMode('dim');
-    else if (lightMode === 'dim') setLightMode('bright');
-    else setLightMode('warm');
-  };
 
   return (
     <header
       className={`fixed top-0 left-0 w-full z-50 transition-all duration-300 ${
         scrolled
-          ? 'py-3.5 editorial-nav shadow-2xl'
-          : 'py-5 bg-gradient-to-b from-[#090A08]/90 via-[#090A08]/40 to-transparent'
+          ? 'py-3.5 bg-[#15180F]/95 backdrop-blur-md border-b border-[rgba(238,232,217,0.08)] shadow-lg'
+          : 'pt-6 pb-4 bg-transparent'
       }`}
-      style={{
-        backdropFilter: scrolled ? 'blur(16px)' : 'none',
-        WebkitBackdropFilter: scrolled ? 'blur(16px)' : 'none'
-      }}
     >
-      <div className="portfolio-container flex items-center justify-between">
-        {/* Monogram Logo */}
-        <a
-          href="#home"
-          className="group flex items-center gap-3 text-decoration-none"
-          title="Prianshu Mitra Portfolio"
-        >
-          <div className="relative w-9 h-9 rounded-lg bg-[#141611] border border-white/10 flex items-center justify-center shadow-md group-hover:border-[#D99A35] transition-all duration-200">
-            <span className="font-display font-bold text-sm tracking-wider text-[#F5B94F]">
-              PM
+      <div className="w-full px-5 sm:px-8 lg:px-12 xl:px-16 flex items-center justify-between">
+        
+        {/* Left: PM logo & architectural line */}
+        <div className="flex items-center gap-6">
+          <a
+            href="#home"
+            className="flex items-center gap-1.5 text-decoration-none group select-none"
+            title="Prianshu Mitra"
+          >
+            <span className={`font-serif text-3xl font-bold tracking-tight transition-colors ${
+              scrolled ? 'text-[#EEE8D9]' : 'text-[#171710]'
+            }`}>
+              PM.
             </span>
-          </div>
-          <div className="flex flex-col">
-            <span className="font-display text-sm font-bold tracking-tight text-[#F0E8D8] group-hover:text-[#F5B94F] transition-colors">
-              PRIANSHU MITRA
-            </span>
-            <span className="text-[10px] font-mono tracking-wider text-[#D99A35] uppercase">
-              Engineer & Musician
-            </span>
-          </div>
-        </a>
+            <span className="w-2.5 h-2.5 bg-[#D99A19] inline-block transition-transform group-hover:scale-110 ml-0.5" />
+          </a>
 
-        {/* Desktop Navigation Links */}
-        <nav className="hidden md:flex items-center gap-1.5 p-1 rounded-full bg-[#11120F]/70 border border-[#D99A35]/15 backdrop-blur-md">
+          {/* Thin horizontal architectural line */}
+          <div className={`hidden md:block w-28 lg:w-36 h-[1px] transition-colors ${
+            scrolled ? 'bg-[#EEE8D9]/20' : 'bg-[#39382F]/30'
+          }`} />
+        </div>
+
+        {/* Center-Left: Navigation Links – shifted slightly to the left */}
+        <nav className="hidden lg:flex items-center gap-8 xl:gap-9 -translate-x-6 lg:-translate-x-10 xl:-translate-x-14">
           {navLinks.map((link) => {
-            const isActive = activeSection === link.href.substring(1);
+            const isActive = activeSection === link.id;
             return (
               <a
-                key={link.href}
+                key={link.id}
                 href={link.href}
-                className={`px-3.5 py-1.5 rounded-full text-xs font-medium tracking-wide transition-all duration-200 text-decoration-none ${
-                  isActive
-                    ? 'bg-[#D99A35]/25 text-[#F5B94F] shadow-sm font-semibold'
-                    : 'text-[#b8b09f] hover:text-[#F0E8D8] hover:bg-white/5'
+                className="relative py-1 text-[15px] font-sans font-bold transition-colors text-decoration-none"
+              >
+                <span
+                  className={
+                    isActive
+                      ? scrolled ? 'text-[#EEE8D9] font-bold' : 'text-[#171710] font-bold'
+                      : scrolled ? 'text-[#AAA595] hover:text-[#EEE8D9] font-bold' : 'text-[#39382F] hover:text-[#171710] font-bold'
+                  }
+                >
+                  {link.label}
+                </span>
+
+                {/* Active ochre underline */}
+                {isActive && (
+                  <span className="absolute -bottom-1.5 left-1/2 -translate-x-1/2 w-11 h-[3px] bg-[#D99A19] rounded-full" />
+                )}
+              </a>
+            );
+          })}
+        </nav>
+
+        {/* Right: Résumé button — sits over the dark olive area */}
+        <div className="hidden lg:flex items-center">
+          <button
+            onClick={onOpenResume}
+            className="btn-resume-nav font-sans font-bold"
+            aria-label="View Résumé"
+          >
+            <span>Résumé</span>
+            <ArrowUpRight size={14} className="text-[#D99A19]" />
+          </button>
+        </div>
+
+        {/* Mobile Menu Trigger */}
+        <div className="lg:hidden flex items-center">
+          <button
+            onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
+            className={`p-2 rounded transition-colors bg-transparent border-0 cursor-pointer ${
+              scrolled ? 'text-[#EEE8D9]' : 'text-[#171710]'
+            }`}
+            aria-label="Toggle navigation"
+          >
+            {mobileMenuOpen ? <X size={24} /> : <Menu size={24} />}
+          </button>
+        </div>
+      </div>
+
+      {/* Mobile Drawer */}
+      {mobileMenuOpen && (
+        <div className="lg:hidden absolute top-full left-0 w-full bg-[#15180F]/98 backdrop-blur-xl border-b border-[rgba(238,232,217,0.12)] px-6 py-6 shadow-2xl flex flex-col gap-4">
+          {navLinks.map((link) => {
+            const isActive = activeSection === link.id;
+            return (
+              <a
+                key={link.id}
+                href={link.href}
+                onClick={() => setMobileMenuOpen(false)}
+                className={`py-2 text-sm font-sans font-bold tracking-wide transition-colors ${
+                  isActive ? 'text-[#D99A19]' : 'text-[#AAA595]'
                 }`}
               >
                 {link.label}
               </a>
             );
           })}
-        </nav>
-
-        {/* Action Controls */}
-        <div className="hidden lg:flex items-center gap-3">
-          {/* Studio Ambiance Audio */}
-          <SoundAmbiance />
-
-          {/* Lighting Mode Quick Toggle */}
-          <button
-            onClick={cycleLighting}
-            className="p-2 rounded-full bg-[#171914] border border-[#D99A35]/20 hover:border-[#D99A35] text-[#F5B94F] transition-all"
-            title={`Workspace Light: ${lightMode.toUpperCase()} (Click to change)`}
-          >
-            {lightMode === 'warm' && <Sparkles size={15} />}
-            {lightMode === 'dim' && <Moon size={15} />}
-            {lightMode === 'bright' && <Sun size={15} />}
-          </button>
-
-          {/* View Resume Button */}
-          <button
-            onClick={onOpenResume}
-            className="flex items-center gap-2 px-4 py-2 rounded-full text-xs font-semibold uppercase tracking-wider bg-gradient-to-r from-[#D99A35] to-[#c28424] text-[#090A08] hover:from-[#F5B94F] hover:to-[#D99A35] transition-all shadow-md hover:shadow-[#D99A35]/30 hover:-translate-y-0.5 cursor-pointer"
-          >
-            <FileText size={13} />
-            <span>Resume</span>
-          </button>
-        </div>
-
-        {/* Mobile Hamburger Button */}
-        <div className="flex items-center gap-2 lg:hidden">
-          <SoundAmbiance />
-          <button
-            onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
-            className="p-2.5 rounded-xl bg-[#171914] border border-[#D99A35]/20 text-[#F0E8D8] hover:border-[#D99A35] transition-all"
-            aria-label="Toggle Navigation Menu"
-          >
-            {mobileMenuOpen ? <X size={20} /> : <Menu size={20} />}
-          </button>
-        </div>
-      </div>
-
-      {/* Mobile Drawer Menu */}
-      {mobileMenuOpen && (
-        <div className="lg:hidden mt-3 px-6 py-5 bg-[#0e0f0c]/95 border-b border-[#D99A35]/20 backdrop-blur-2xl animate-in slide-in-from-top-4 duration-300">
-          <nav className="flex flex-col gap-2">
-            {navLinks.map((link) => (
-              <a
-                key={link.href}
-                href={link.href}
-                onClick={() => setMobileMenuOpen(false)}
-                className={`px-4 py-2.5 rounded-lg text-sm tracking-wide text-decoration-none transition-colors ${
-                  activeSection === link.href.substring(1)
-                    ? 'bg-[#D99A35]/20 text-[#F5B94F] font-semibold border-l-2 border-[#D99A35]'
-                    : 'text-[#b8b09f] hover:text-[#F0E8D8] hover:bg-white/5'
-                }`}
-              >
-                {link.label}
-              </a>
-            ))}
-            <div className="pt-3 border-t border-white/10 flex items-center justify-between gap-3">
-              <button
-                onClick={cycleLighting}
-                className="flex items-center gap-2 px-3 py-2 rounded-lg text-xs font-mono text-[#b8b09f] bg-[#171914] border border-[#D99A35]/20"
-              >
-                <Sparkles size={14} className="text-[#F5B94F]" />
-                <span>Light: {lightMode}</span>
-              </button>
-              <button
-                onClick={() => {
-                  setMobileMenuOpen(false);
-                  onOpenResume();
-                }}
-                className="flex-1 flex items-center justify-center gap-2 px-4 py-2 rounded-lg text-xs font-bold uppercase tracking-wider bg-[#D99A35] text-[#090A08]"
-              >
-                <FileText size={14} />
-                <span>View Resume</span>
-              </button>
-            </div>
-          </nav>
+          <div className="pt-4 border-t border-[rgba(238,232,217,0.1)] flex justify-between items-center">
+            <button
+              onClick={() => {
+                setMobileMenuOpen(false);
+                onOpenResume();
+              }}
+              className="btn-resume-nav w-full justify-center"
+            >
+              <span>Résumé</span>
+              <ArrowUpRight size={14} className="text-[#D99A19]" />
+            </button>
+          </div>
         </div>
       )}
     </header>

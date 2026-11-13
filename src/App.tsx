@@ -11,14 +11,13 @@ import { ResumeModal } from './components/ResumeModal';
 
 export function App() {
   const [resumeOpen, setResumeOpen] = useState(false);
-  const [lightMode, setLightMode] = useState<'warm' | 'dim' | 'bright'>('warm');
   const [activeSection, setActiveSection] = useState('home');
 
   useEffect(() => {
     const handleScroll = () => {
       const sections = ['home', 'creations', 'technologies', 'beyond-code', 'achievements', 'journey', 'contact'];
       const scrollY = window.scrollY;
-      const offset = 250;
+      const offset = 220;
 
       for (let i = sections.length - 1; i >= 0; i--) {
         const sec = document.getElementById(sections[i]);
@@ -34,43 +33,38 @@ export function App() {
   }, []);
 
   return (
-    <div className="min-h-screen bg-[#090A08] text-[#F0E8D8] selection:bg-[#D99A35]/30">
-      {/* Navigation Header */}
+    <div className="min-h-screen bg-[#15180F] text-[#F5F0E5] selection:bg-[#D99A19]/35">
+      {/* Editorial Navigation */}
       <Navigation
         activeSection={activeSection}
         onOpenResume={() => setResumeOpen(true)}
-        lightMode={lightMode}
-        setLightMode={setLightMode}
       />
 
       {/* Main Content Sections */}
       <main>
-        {/* Section 0: The Immersive Workspace Hero */}
-        <HeroWorkspace
-          onOpenResume={() => setResumeOpen(true)}
-          lightMode={lightMode}
-        />
+        {/* Section 0: Unconventional Split Hero — Editorial Paper & Developer Studio */}
+        <HeroWorkspace />
 
-        {/* Section 1: Selected Creations (Debi-Dorshon, Rentify, Quizreto) */}
+        {/* Section 1: Selected Case Studies (Debi-Dorshon, Rentify, Quizreto) */}
         <CreationsSection />
 
-        {/* Section 2: Technologies & Architecture */}
+        {/* Section 2: Technical Competence & Stack */}
         <TechnologiesSection />
 
-        {/* Section 3: Beyond Code (Music, Vocal Covers & Cubase Production) */}
+        {/* Section 3: Beyond Code (Music Production & Audio Engineering) */}
         <CreativeSection />
 
-        {/* Section 4: Honors & Achievements */}
+        {/* Section 4: Verified Honors & Accolades */}
         <AchievementsSection />
 
-        {/* Section 5: Academic & Professional Journey */}
+        {/* Section 5: Academic & Professional Trajectory */}
         <JourneySection />
 
-        {/* Section 6: Contact & Socials */}
+        {/* Section 6: Inquiries & Contact */}
         <ContactSection onOpenResume={() => setResumeOpen(true)} />
       </main>
 
-      {/* Interactive Curriculum Vitae Modal */}
+      {/* Curriculum Vitae Modal */}
       <ResumeModal
         isOpen={resumeOpen}
         onClose={() => setResumeOpen(false)}
